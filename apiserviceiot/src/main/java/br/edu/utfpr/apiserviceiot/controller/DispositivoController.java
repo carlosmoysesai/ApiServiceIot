@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.utfpr.apiserviceiot.service.DispositivoService;
 
 @RestController
-@RequestMapping("/dispositivos")
+@RequestMapping("/dispositivo")
 public class DispositivoController {
     @Autowired
     private DispositivoService dispositivoService;

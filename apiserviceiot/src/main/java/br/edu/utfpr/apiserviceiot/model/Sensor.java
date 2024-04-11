@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "sensores")
+@Table(name = "tb_sensor")
 @Data
 public class Sensor {
     @Id

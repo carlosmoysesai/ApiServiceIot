@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.utfpr.apiserviceiot.service.AtuadorService;
 
 @RestController
-@RequestMapping("/atuadores")
+@RequestMapping("/atuadore")
 public class AtuadorController {
     @Autowired
     private AtuadorService atuadorService;

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.utfpr.apiserviceiot.service.LeituraService;
 
 @RestController
-@RequestMapping("/leituras")
+@RequestMapping("/leitura")
 public class LeituraController {
     @Autowired
     private LeituraService leituraService;

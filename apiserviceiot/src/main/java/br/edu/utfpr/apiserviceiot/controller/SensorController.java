@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.utfpr.apiserviceiot.service.SensorService;
 
 @RestController
-@RequestMapping("/sensores")
+@RequestMapping("/sensor")
 public class SensorController {
     @Autowired
     private SensorService sensorService;

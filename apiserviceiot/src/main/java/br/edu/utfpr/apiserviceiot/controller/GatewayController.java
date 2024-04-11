@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.utfpr.apiserviceiot.service.GatewayService;
 
 @RestController
-@RequestMapping("/gateways")
+@RequestMapping("/gateway")
 public class GatewayController {
     @Autowired
     private GatewayService gatewayService;

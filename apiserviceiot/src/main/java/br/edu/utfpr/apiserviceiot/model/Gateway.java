@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "gateways")
+@Table(name = "tb_gateway")
 @Data
 public class Gateway {
     @Id
