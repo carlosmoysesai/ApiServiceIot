@@ -19,7 +19,6 @@ public class PessoaService {
 
     /**
      * Inserir uma pessoa no DB.
-     * 
      * @return
      */
     public Pessoa create(PessoaDTO dto) {
@@ -32,7 +31,6 @@ public class PessoaService {
 
     /**
      * Buscar no banco de dados todas.
-     * 
      * @return
      */
     public List<Pessoa> getAll() {
@@ -41,7 +39,6 @@ public class PessoaService {
 
     /**
      * Buscar uma pessoa pelo ID.
-     * 
      * @param id
      * @return
      */
@@ -49,10 +46,11 @@ public class PessoaService {
         return pessoaRepository.findById(id);
     }
 
+
     public Pessoa update(long id, PessoaDTO dto) throws NotFoundException {
         var res = pessoaRepository.findById(id);
 
-        if (res.isEmpty()) {
+        if(res.isEmpty()) {
             throw new NotFoundException("Pessoa " + id + " não existe.");
         }
 
@@ -66,11 +64,10 @@ public class PessoaService {
     public void delete(long id) throws NotFoundException {
         var res = pessoaRepository.findById(id);
 
-        if (res.isEmpty()) {
+        if(res.isEmpty()) {
             throw new NotFoundException("Pessoa " + id + " não existe.");
         }
 
         pessoaRepository.delete(res.get());
     }
-
 }
