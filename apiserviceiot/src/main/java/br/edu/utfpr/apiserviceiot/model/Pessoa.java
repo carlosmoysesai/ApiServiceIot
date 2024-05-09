@@ -14,8 +14,8 @@ import lombok.Data;
 public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
+    private long id; 
+    
     @Column(nullable = false)
     private String nome;
 
@@ -24,4 +24,7 @@ public class Pessoa {
 
     @Column(nullable = false)
     private String senha;
+
+    //@OneToMany(mappedBy = "person")
+    //private List<Gateway> gateways;
 }
