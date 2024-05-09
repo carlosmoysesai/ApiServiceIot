@@ -29,11 +29,10 @@ public class PessoaController {
     public ResponseEntity<Object> create(@RequestBody PessoaDTO dto) {
         try {
             var res = pessoaService.create(dto);
-
             // Seta o status para 201 (CREATED) e devolve
             // o objeto Pessoa em JSON.
             return ResponseEntity.status(HttpStatus.CREATED).body(res);
-        } catch (Exception ex) {
+        } catch(Exception ex) {
             // Seta o status para 400 (Bad request) e devolve
             // a mensagem da exceção lançada.
             return ResponseEntity.badRequest().body(ex.getMessage());
@@ -53,35 +52,35 @@ public class PessoaController {
      */
     @GetMapping("/{id}")
     public ResponseEntity<Object> getById(@PathVariable("id") long id) {
-        var person = pessoaService.getById(id);
-
-        return person.isPresent()
-                ? ResponseEntity.ok().body(person.get())
-                : ResponseEntity.notFound().build();
+        var pessoa = pessoaService.getById(id);
+        
+        return pessoa.isPresent()
+            ? ResponseEntity.ok().body(pessoa.get())
+            : ResponseEntity.notFound().build();
     }
+    
 
     @PutMapping("/{id}")
     public ResponseEntity<Object> update(@PathVariable long id,
-            @RequestBody PessoaDTO dto) {
-        try {
-            return ResponseEntity.ok().body(pessoaService.update(id, dto));
-        } catch (NotFoundException ex) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
-        } catch (Exception ex) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
-        }
+        @RequestBody PessoaDTO dto) {
+            try {
+                return ResponseEntity.ok().body(pessoaService.update(id, dto));
+            } catch(NotFoundException ex) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+            } catch(Exception ex) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+            }
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> delete(@PathVariable("id") long id) {
+    public ResponseEntity<Object> delete(@PathVariable("id") long id){
         try {
             pessoaService.delete(id);
             return ResponseEntity.ok().build();
-        } catch (NotFoundException ex) {
+        } catch(NotFoundException ex) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
-        } catch (Exception ex) {
+        } catch(Exception ex) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
         }
     }
-
 }
